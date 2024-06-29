@@ -1,0 +1,29 @@
+/* Aquí puedes agregar estilos específicos para la página de resultados de búsqueda si es necesario */
+/* Puedes reutilizar los estilos globales de styles.css o agregar nuevos estilos aquí */
+body {
+    background-color: #000;
+    color: #fff;
+  }
+  
+  .card {
+    background-color: #222;
+    color: #fff;
+  }
+  
+  .card-title {
+    color: #fff;
+  }
+  
+  .card-text {
+    color: #ccc;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    border: none;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  

@@ -1,0 +1,21 @@
+.login-form {
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgb(0, 0, 0);
+    text-align: center;
+  }
+  
+  .login-form h2 {
+    margin-bottom: 20px;
+  }
+  
+  .login-form p {
+    margin-bottom: 20px;
+  }
+  
+  .login-form a {
+    display: block;
+    margin: 10px 0;
+  }
+  
