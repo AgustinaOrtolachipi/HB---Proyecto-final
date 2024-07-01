@@ -1,30 +1,26 @@
 import React from 'react';
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { Container, Form, Button } from 'react-bootstrap';
+import './LoginPage.css';
 
 const LoginPage = () => {
   return (
-    <Container>
-      <Row className="justify-content-md-center">
-        <Col md={6}>
-          <div className="login-form">
-            <h2>Bienvenido</h2>
-            <p>Inicia sesión para continuar</p>
-            <Form>
-              <Form.Group controlId="formEmail">
-                <Form.Label>Direccion de Email</Form.Label>
-                <Form.Control type="email" placeholder="Enter email" />
-              </Form.Group>
-              <Form.Group controlId="formPassword">
-                <Form.Label>Contraseña</Form.Label>
-                <Form.Control type="password" placeholder="Password" />
-              </Form.Group>
-              <Button variant="primary" type="submit">Continuar</Button>
-            </Form>
-            <a href="/forgot-password">Olvidaste tu contraseña?</a>
-            <p>Aun no tienes una cuenta? <a href="/signup">Sign up</a></p>
-          </div>
-        </Col>
-      </Row>
+    <Container className="login-page">
+      <h2>Iniciar Sesión</h2>
+      <Form>
+        <Form.Group controlId="formBasicEmail">
+          <Form.Label>Correo Electrónico</Form.Label>
+          <Form.Control type="email" placeholder="Ingrese su correo electrónico" />
+        </Form.Group>
+
+        <Form.Group controlId="formBasicPassword">
+          <Form.Label>Contraseña</Form.Label>
+          <Form.Control type="password" placeholder="Ingrese su contraseña" />
+        </Form.Group>
+        
+        <Button variant="primary" type="submit">
+          Iniciar Sesión
+        </Button>
+      </Form>
     </Container>
   );
 };

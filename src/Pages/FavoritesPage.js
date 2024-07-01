@@ -1,33 +1,31 @@
 import React from 'react';
-import { Container, Row, Col, Card } from 'react-bootstrap';
+import { useSelector, useDispatch } from 'react-redux';
+import { Container, Row, Col, Card, Button } from 'react-bootstrap';
+import { removeFromFavorites } from '../actions/Actions';
+import './FavoritesPage.css';
 
 const FavoritesPage = () => {
-  const favoriteProperties = [
-    {
-      image: 'property1.jpg',
-      title: 'The Johnson ...',
-      price: '$5000',
-      description: 'This is an amazing place to live with all facilities around you.',
-    },
-    {
-      image: 'property2.jpg',
-      title: 'Jansheen villan',
-      price: '$8000',
-      description: 'Villa is a marvelous piece of luxury and art. Decorated with two helipads, wi...',
-    },
-  ];
+  const dispatch = useDispatch();
+  const favorites = useSelector((state) => state.favorites.favorites);
+
+  const handleRemoveFromFavorites = (propertyId) => {
+    dispatch(removeFromFavorites(propertyId));
+  };
 
   return (
-    <Container>
+    <Container className="favorites-page">
+      <h2>Favoritos</h2>
       <Row>
-        {favoriteProperties.map((property, index) => (
-          <Col key={index} md={4}>
-            <Card>
+        {favorites.map((property) => (
+          <Col key={property.id} md={4}>
+            <Card className="mb-4">
               <Card.Img variant="top" src={property.image} />
               <Card.Body>
                 <Card.Title>{property.title}</Card.Title>
-                <Card.Text>{property.price}</Card.Text>
                 <Card.Text>{property.description}</Card.Text>
+                <Button onClick={() => handleRemoveFromFavorites(property.id)} className="btn btn-danger">
+                  Eliminar de Favoritos
+                </Button>
               </Card.Body>
             </Card>
           </Col>

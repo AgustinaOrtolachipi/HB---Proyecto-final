@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
+import { Container, Row, Col, Button, Form } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import './Home.css';
 
 const Home = () => {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [query, setQuery] = useState('');
   const navigate = useNavigate();
 
   const handleSearch = () => {
-    navigate(`/search?q=${searchTerm}`);
+    navigate(`/search-results?query=${query}`);
   };
 
   return (
@@ -16,24 +16,25 @@ const Home = () => {
       <Container>
         <Row className="align-items-center">
           <Col md={6}>
-            <h1 className="home-title">Descubra la mejor propiedad para usted.</h1>
+            <h1 className="home-title">Descubra la Propiedad Más Adecuada</h1>
             <p className="home-subtitle">
               Encuentre una variedad de propiedades que se adapten a sus necesidades muy fácilmente.
+              Olvídese de todas las dificultades para encontrar una residencia para usted.
             </p>
-            <Form className="search-bar">
+            <Form className="search-bar" onSubmit={(e) => { e.preventDefault(); handleSearch(); }}>
               <Form.Control
                 type="text"
                 placeholder="Buscar por título/ciudad/país..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
                 className="search-input"
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
               />
-              <Button onClick={handleSearch} className="search-button">Buscar</Button>
+              <Button type="submit" className="search-button">Buscar</Button>
             </Form>
           </Col>
           <Col md={6}>
             <div className="image-container">
-              <img src="/images/property-image.jpg" alt="Property" className="home-image" />
+              <img src="./images/property-image.jpg" alt="Property" className="home-image img-fluid" />
             </div>
           </Col>
         </Row>

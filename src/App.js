@@ -1,37 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './Pages/Home';
-import PropertyDetail from './Pages/PropertyDetail';
-import FavoritesPage from './Pages/FavoritesPage';
-import ContactUs from './Pages/ContactUs';
-import AddPropertyPage from './Pages/AddPropertyPage';
-import LoginPage from './Pages/LoginPage';
+import Home from './pages/Home';
+import ResidenceDetail from './pages/ResidenceDetail';
+import FavoritesPage from './pages/FavoritesPage';
+import ContactUs from './pages/ContactUs';
+import AddPropertyPage from './pages/AddPropertiesPage';
+import LoginPage from './pages/LoginPage';
+import PropertiesPage from './pages/PropertiesPage';
+import SearchResultsPage from './pages/SearchResultsPage';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import PropertiesPage from './Pages/PropertiesPage';
-import SearchResultsPage from './Pages/SearchResultsPage';
+import propertiesData from './propertiesData';
 
+const App = () => {
+  const [properties, setProperties] = useState(propertiesData);
 
-function App() {
+  const addProperty = (property) => {
+    setProperties([...properties, property]);
+  };
+
   return (
     <Router>
       <div>
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/property/:id" element={<PropertyDetail />} />
+          <Route path="/residence-detail" element={<ResidenceDetail />} />
           <Route path="/favorites" element={<FavoritesPage />} />
           <Route path="/contact-us" element={<ContactUs />} />
-          <Route path="/add-property" element={<AddPropertyPage />} />
+          <Route path="/add-property" element={<AddPropertyPage addProperty={addProperty} />} />
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/properties" element={<PropertiesPage />} />
-          <Route path="/search" element={<SearchResultsPage />} /> 
+          <Route path="/properties" element={<PropertiesPage properties={properties} />} />
+          <Route path="/search-results" element={<SearchResultsPage properties={properties} />} />
         </Routes>
         <Footer />
       </div>
     </Router>
   );
-}
+};
 
 export default App;
-

@@ -1,4 +1,4 @@
-.search-results-page {
+.favorites-page {
   background-color: #000;
   color: #fff;
   min-height: 100vh;
@@ -17,4 +17,13 @@
 .card-img-top {
   height: 200px;
   object-fit: cover;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border: none;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
 }
