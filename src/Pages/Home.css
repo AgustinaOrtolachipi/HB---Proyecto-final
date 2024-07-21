@@ -22,18 +22,26 @@
 }
 
 .search-input {
-  flex: 1;
-  padding: 10px;
+  flex: 1; 
+  padding: 1% 40%; 
   border: 1px solid #ccc;
-  border-radius: 0;
+  border-radius: 4px 0 0 4px;
+  font-size: 16px;
 }
 
 .search-button {
   background-color: #0056b3;
   border: none;
-  padding: 10px 20px;
+  padding: 1% 5%; 
   color: #fff;
-  border-radius: 0;
+  cursor: pointer;
+  border-radius: 0 4px 4px 0;
+  font-size: 16px;
+  margin-top: -3px;
+}
+.search-container {
+  display: flex;
+  align-items: center;
 }
 
 .search-button:hover {

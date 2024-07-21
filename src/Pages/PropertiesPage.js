@@ -1,16 +1,15 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import { addToFavorites } from '../actions/Actions';
 import './PropertiesPage.css';
 
 const PropertiesPage = ({ properties }) => {
   const dispatch = useDispatch();
-  const [favoriteProperties, setFavoriteProperties] = useState([]);
+  const favoriteProperties = useSelector((state) => state.favorites.favorites);
 
   const handleAddToFavorites = (property) => {
     dispatch(addToFavorites(property));
-    setFavoriteProperties([...favoriteProperties, property.id]);
   };
 
   return (
@@ -24,7 +23,7 @@ const PropertiesPage = ({ properties }) => {
               <Card.Body>
                 <Card.Title>{property.title}</Card.Title>
                 <Card.Text>{property.description}</Card.Text>
-                {favoriteProperties.includes(property.id) ? (
+                {Array.isArray(favoriteProperties) && favoriteProperties.some(fav => fav.id === property.id) ? (
                   <Button disabled className="btn btn-secondary">
                     Agregado a Favoritos
                   </Button>

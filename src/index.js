@@ -6,11 +6,11 @@ import './Styles.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
-import store from './Store';
+import Store from './Store';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
+    <Provider store={Store}>
       <App />
     </Provider>
   </React.StrictMode>,
