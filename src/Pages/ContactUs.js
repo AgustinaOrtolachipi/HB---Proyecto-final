@@ -23,7 +23,7 @@ const ContactUs = () => {
         <Col md={3} className="text-center">
           <div className="contact-method">
             <i className="fas fa-video contact-icon"></i>
-            <Button className="btn btn-primary contact-button" href="https://example.com/videocall" target="_blank">Video Llamada</Button>
+            <Button className="btn btn-primary contact-button" href="https://meet.google.com/fjx-yufc-jtb" target="_blank">Video Llamada</Button>
           </div>
         </Col>
         <Col md={3} className="text-center">
@@ -38,3 +38,4 @@ const ContactUs = () => {
 };
 
 export default ContactUs;
+
