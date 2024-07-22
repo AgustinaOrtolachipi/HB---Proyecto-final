@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Container, Form, Button } from 'react-bootstrap';
+import React, { useState, useEffect } from 'react';
+import { Container, Form, Button, Alert } from 'react-bootstrap';
 import { FaUser, FaLock, FaEnvelope } from 'react-icons/fa';
 import './LoginPage.css';
 
@@ -8,61 +8,88 @@ const LoginPage = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
+  const [rememberMe, setRememberMe] = useState(false);
+  const [message, setMessage] = useState(null);
+  const [messageType, setMessageType] = useState('');
+
+  useEffect(() => {
+    // Check if user credentials are stored in localStorage
+    const storedEmail = localStorage.getItem('rememberEmail');
+    const storedPassword = localStorage.getItem('rememberPassword');
+    if (storedEmail && storedPassword) {
+      setEmail(storedEmail);
+      setPassword(storedPassword);
+      setRememberMe(true);
+    }
+  }, []);
 
   const registerLink = () => {
     setAction(' active');
+    setMessage(null); // Clear message when switching forms
   };
 
   const loginLink = () => {
     setAction('');
+    setMessage(null); // Clear message when switching forms
   };
 
-  const handleLogin = async (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
-    try {
-      const response = await fetch('http://localhost:300/auth/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          username,
-          password,
-        }),
-      });
-      const data = await response.json();
-      console.log(data);
-    } catch (error) {
-      console.error(error);
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    const user = users.find(user => user.email === email && user.password === password);
+    if (user) {
+      setMessageType('success');
+      setMessage('Inicio de sesión exitoso');
+      if (rememberMe) {
+        localStorage.setItem('rememberEmail', email);
+        localStorage.setItem('rememberPassword', password);
+      } else {
+        localStorage.removeItem('rememberEmail');
+        localStorage.removeItem('rememberPassword');
+      }
+      // Aquí puedes redirigir al usuario a la página principal o mostrar un mensaje de éxito.
+    } else {
+      setMessageType('danger');
+      setMessage('Correo electrónico o contraseña incorrectos. Por favor intente nuevamente o regístrese.');
     }
   };
 
-  const handleRegister = async (e) => {
+  const handleRegister = (e) => {
     e.preventDefault();
-    try {
-      const response = await fetch('http://localhost:3000/auth/register', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          username,
-          password,
-          email,
-        }),
-      });
-      const data = await response.json();
-      console.log(data);
-    } catch (error) {
-      console.error(error);
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    const userExists = users.some(user => user.email === email);
+    if (userExists) {
+      setMessageType('danger');
+      setMessage('El usuario ya existe. Por favor inicie sesión.');
+    } else {
+      const newUser = { username, email, password };
+      users.push(newUser);
+      localStorage.setItem('users', JSON.stringify(users));
+      setMessageType('success');
+      setMessage('Registro exitoso. Ahora puede iniciar sesión.');
+      setAction(''); // Switch to login form after successful registration
+    }
+  };
+
+  const handleForgotPassword = () => {
+    const users = JSON.parse(localStorage.getItem('users')) || [];
+    const user = users.find(user => user.email === email);
+    if (user) {
+      setMessageType('success');
+      setMessage('Se ha enviado un correo electrónico para restablecer su contraseña.');
+    } else {
+      setMessageType('danger');
+      setMessage('El correo electrónico no está registrado.');
     }
   };
 
   return (
     <Container className={`wrapper${action}`}>
-      <div className="form-box login">
+      <div className={`form-box login${action ? '' : ' active'}`}>
         <Form onSubmit={handleLogin}>
           <h1>Iniciar Sesión</h1>
+          {message && messageType === 'success' && <Alert variant="success">{message}</Alert>}
+          {message && messageType === 'danger' && <Alert variant="danger">{message}</Alert>}
           <Form.Group controlId="formBasicEmail" className="input-box">
             <Form.Control
               type="email"
@@ -84,8 +111,13 @@ const LoginPage = () => {
             <FaLock className="icon" />
           </Form.Group>
           <div className="remember-forgot">
-            <Form.Check type="checkbox" label="Recordarme" />
-            <button type="button" className="link-button" onClick={() => console.log('Forgot password clicked')}>Olvidé mi contraseña</button>
+            <Form.Check 
+              type="checkbox" 
+              label="Recordarme" 
+              checked={rememberMe}
+              onChange={(e) => setRememberMe(e.target.checked)}
+            />
+            <button type="button" className="link-button" onClick={handleForgotPassword}>Olvidé mi contraseña</button>
           </div>
           <Button variant="primary" type="submit">
             Iniciar Sesión
@@ -97,9 +129,11 @@ const LoginPage = () => {
           </div>
         </Form>
       </div>
-      <div className="form-box register">
+      <div className={`form-box register${action ? ' active' : ''}`}>
         <Form onSubmit={handleRegister}>
           <h1>Registro</h1>
+          {message && messageType === 'success' && <Alert variant="success">{message}</Alert>}
+          {message && messageType === 'danger' && <Alert variant="danger">{message}</Alert>}
           <Form.Group controlId="formBasicUsername" className="input-box">
             <Form.Control
               type="text"
