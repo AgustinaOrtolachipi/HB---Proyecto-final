@@ -1,9 +1,10 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
+import './Footer.css';
 
 const Footer = () => {
   return (
-    <footer className="bg-light py-3">
+    <footer>
       <Container>
         <Row>
           <Col className="text-center">

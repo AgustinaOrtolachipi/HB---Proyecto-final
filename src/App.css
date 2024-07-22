@@ -36,3 +36,28 @@
     transform: rotate(360deg);
   }
 }
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content-wrap {
+  flex: 1;
+}
+
+footer {
+  background-color: #333; /* Color gris oscuro */
+  padding: 20px 0;
+  text-align: center;
+  width: 100%;
+  color: #fff; /* Color del texto blanco para mejor contraste */
+}
+
+

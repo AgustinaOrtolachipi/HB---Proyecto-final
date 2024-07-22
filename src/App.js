@@ -21,18 +21,20 @@ const App = () => {
 
   return (
     <Router>
-      <div>
+      <div className="app-container">
         <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/residence-detail" element={<ResidenceDetail />} />
-          <Route path="/favorites" element={<FavoritesPage />} />
-          <Route path="/contact-us" element={<ContactUs />} />
-          <Route path="/add-property" element={<AddPropertyPage addProperty={addProperty} />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/properties" element={<PropertiesPage properties={properties} />} />
-          <Route path="/search-results" element={<SearchResultsPage properties={properties} />} />
-        </Routes>
+        <div className="content-wrap">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/residence-detail" element={<ResidenceDetail />} />
+            <Route path="/favorites" element={<FavoritesPage />} />
+            <Route path="/contact-us" element={<ContactUs />} />
+            <Route path="/add-property" element={<AddPropertyPage addProperty={addProperty} />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/properties" element={<PropertiesPage properties={properties} />} />
+            <Route path="/search-results" element={<SearchResultsPage properties={properties} />} />
+          </Routes>
+        </div>
         <Footer />
       </div>
     </Router>
