@@ -7,6 +7,7 @@ const propertiesData = [
     image: './images/villa-casa-1.jpg',
     country: 'EEUU',
     city: 'Nueva York',
+    type: 'house', // Tipo de alojamiento
   },
   {
     id: 2,

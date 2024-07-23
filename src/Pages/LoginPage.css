@@ -50,3 +50,13 @@
   text-align: center;
   margin-top: 20px;
 }
+
+
+footer {
+  background-color: #333; /* Color gris oscuro */
+  padding: 20px 0;
+  text-align: center;
+  width: 100%;
+  color: #fff; /* Color del texto blanco para mejor contraste */
+}
+
