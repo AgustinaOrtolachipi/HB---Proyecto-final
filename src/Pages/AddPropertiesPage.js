@@ -3,6 +3,8 @@ import { Container, Form, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { connect } from 'react-redux';
+import { addProperty } from '../actions/Actions'; // Asegúrate de que la ruta sea correcta
 
 const AddPropertiesPage = ({ addProperty }) => {
   const [step, setStep] = useState(1);
@@ -135,4 +137,8 @@ const AddPropertiesPage = ({ addProperty }) => {
   );
 };
 
-export default AddPropertiesPage;
+const mapDispatchToProps = (dispatch) => ({
+  addProperty: (property) => dispatch(addProperty(property))
+});
+
+export default connect(null, mapDispatchToProps)(AddPropertiesPage);
