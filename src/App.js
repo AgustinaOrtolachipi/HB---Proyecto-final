@@ -22,7 +22,7 @@ const App = () => {
         <div className="content-wrap">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/residence-detail" element={<ResidenceDetail />} />
+            <Route path="/residence-detail/:id" element={<ResidenceDetail />} />
             <Route path="/favorites" element={<FavoritesPage />} />
             <Route path="/contact-us" element={<ContactUs />} />
             <Route path="/add-property" element={<AddPropertyPage />} />

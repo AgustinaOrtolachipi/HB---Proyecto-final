@@ -1,9 +1,11 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom'; // Importa Link
 import { addToFavorites } from '../actions/Actions';
 import './PropertiesPage.css';
 import SearchBar from '../components/SearchBar';
+
 
 const PropertiesPage = ({ properties }) => {
   const dispatch = useDispatch();
@@ -25,12 +27,15 @@ const PropertiesPage = ({ properties }) => {
               <Card.Body>
                 <Card.Title>{property.title}</Card.Title>
                 <Card.Text>{property.description}</Card.Text>
+                <Link to={`/residence-detail/${property.id}`}>
+                  <Button variant="primary">Ver Detalles</Button>
+                </Link>
                 {Array.isArray(favoriteProperties) && favoriteProperties.some(fav => fav.id === property.id) ? (
-                  <Button disabled className="btn btn-secondary">
+                  <Button disabled className="btn btn-secondary mt-2">
                     Agregado a Favoritos
                   </Button>
                 ) : (
-                  <Button onClick={() => handleAddToFavorites(property)} className="btn btn-primary">
+                  <Button onClick={() => handleAddToFavorites(property)} className="btn btn-primary mt-2">
                     Agregar a Favoritos
                   </Button>
                 )}
