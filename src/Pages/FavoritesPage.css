@@ -1,0 +1,29 @@
+.favorites-page {
+  background-color: #000;
+  color: #fff;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.card {
+  background-color: #333;
+  border: none;
+}
+
+.card-title, .card-text {
+  color: #fff;
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border: none;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+}

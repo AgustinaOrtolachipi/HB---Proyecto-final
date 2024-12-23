@@ -1,0 +1,60 @@
+.contact-us-page {
+  background-color: #000; /* Fondo negro */
+  color: #fff; /* Texto blanco */
+  min-height: 100vh; /* Asegura que la página cubra toda la altura de la ventana */
+  padding: 20px 0; /* Reduce el padding superior e inferior */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Alinea el contenido hacia la parte superior */
+  align-items: center; /* Centra el contenido horizontalmente */
+}
+
+.section-title {
+  color: #1299f3; /* Naranja */
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.section-subtitle {
+  color: #fff; /* Blanco */
+  font-size: 4rem;
+  margin-bottom: 20px;
+  text-align: center;
+  
+}
+
+.section-description {
+  color: #b2bec3; /* Gris claro */
+  font-size: 1rem;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.contact-method {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.contact-icon {
+  font-size: 2.5rem;
+  color: #1299f3; /* Naranja */
+  margin-bottom: 10px;
+}
+
+.contact-button {
+   border: none;
+  color: #fff; /* Blanco */
+  font-size: 1rem;
+  padding: 20px 50px;
+  text-transform: uppercase;
+  margin: 0 50px; /* Añade margen horizontal para separar los botones */
+}
+
+.contact-button:hover {
+  background-color: #1299f3; /* Naranja oscuro */
+  border: none;
+  color: #fff; /* Blanco */
+}
+

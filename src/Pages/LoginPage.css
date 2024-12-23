@@ -1,0 +1,62 @@
+.wrapper {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  background: #ffffff2a;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-box {
+  display: none;
+}
+
+.form-box.active {
+  display: block;
+}
+
+.input-box {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-box .icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  color: #999;
+}
+
+.remember-forgot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.link-button {
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  padding: 0;
+}
+
+.link-button:hover {
+  text-decoration: underline;
+}
+
+.register-link {
+  text-align: center;
+  margin-top: 20px;
+}
+
+
+footer {
+  background-color: #333; /* Color gris oscuro */
+  padding: 20px 0;
+  text-align: center;
+  width: 100%;
+  color: #fff; /* Color del texto blanco para mejor contraste */
+}
+

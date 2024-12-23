@@ -1,44 +1,72 @@
-Funcionalidades Principales:
-Registro e Inicio de Sesión: Los usuarios pueden registrarse e iniciar sesión para acceder.
-Búsqueda de Propiedades: Los usuarios pueden buscar propiedades por ubicación, tipo, etc.
-Visualización de Detalles: Información detallada de cada propiedad, incluyendo fotos, descripción y precio.
-Reserva de Propiedades: Los usuarios pueden reservar propiedades para fechas específicas.
-Favoritos: Los usuarios pueden agregar propiedades a una lista de favoritos.
-Gestión de Propiedades: Los propietarios pueden agregar, editar y eliminar propiedades.
 
-Flujos de Usuarios
-Registro e Inicio de Sesión
-Registro:
-Completa el formulario de registro con nombre, correo electrónico y contraseña.
-Inicio de Sesión:
-Ingresa el correo electrónico y la contraseña.
+# Getting Started with Create React App
 
-Búsqueda y Reserva de Propiedades:
-Filtra por país, ciudad y tipo de propiedad.
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Visualización de Detalles:
-Muestra fotos, descripción y precio.
+## Available Scripts
 
-Reserva:
-Selecciona fechas y confirma la reserva.
+In the project directory, you can run:
 
-Agregar Propiedad:
-Completa el formulario con detalles de la propiedad.
+### `npm start`
 
-Alcance del Proyecto Incluido:
-Registro e Inicio de Sesión
-Búsqueda y Filtrado de Propiedades
-Visualización de Detalles de Propiedades
-Reserva de Propiedades
-Favoritos
-Gestión de Propiedades (CRUD)
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-Alcance del Proyecto Futuro:
-Integración de Pagos
-Chat en Vivo
-Reseñas y Calificaciones
-Notificaciones
-Optimización para Dispositivos Móviles
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-Documentación
-Toda la documentación del proyecto se encuentra en la siguiente carpeta de Google Drive: https://drive.google.com/drive/folders/1FY9WUKT33k5jGObCth__Xjlp2bYy5zrB?usp=drive_link
+### `npm test`
+
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+### `npm run build`
+
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
+
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `npm run eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
