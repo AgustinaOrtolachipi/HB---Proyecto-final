@@ -20,10 +20,17 @@ const NavigationBar = () => {
         <Nav className="ml-auto">
           <Nav.Link as={Link} to="/" className="text-white">Inicio</Nav.Link>
           <Nav.Link as={Link} to="/properties" className="text-white">Propiedades</Nav.Link>
-          <Nav.Link as={Link} to="/contact-us" className="text-white">Contáctanos</Nav.Link>
           <Nav.Link as={Link} to="/add-property" className="text-white">Agregar Propiedad</Nav.Link>
           <Nav.Link as={Link} to="/favorites" className="text-white">Favoritos</Nav.Link>
+          <Nav.Link as={Link} to="/AdminDashboard" className="text-white">Administrador</Nav.Link>
+          <Nav.Link as={Link} to="/OwnerArea" className="text-white">Propietario</Nav.Link>
+          <Nav.Link as={Link} to="/TenantArea" className="text-white">Inquilino</Nav.Link>
           <Nav.Link as={Link} to="/login" className="text-white">Login</Nav.Link>
+          <Nav.Link as={Link} to="/contact-us" className="text-white">Contáctanos</Nav.Link>
+
+
+
+
         </Nav>
       </Navbar.Collapse>
     </Navbar>

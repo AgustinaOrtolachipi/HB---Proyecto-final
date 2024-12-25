@@ -1,15 +1,18 @@
 import React from 'react';
 import { Navigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 
-const ProtectedRoute = ({ children, requiredRole }) => {
-  // Simula el rol del usuario si aún no usas Redux
-  const userRole = "admin"; // Reemplázalo con `useSelector` cuando esté listo
-
-  if (userRole !== requiredRole) {
+const ProtectedRoute = ({ isAuthenticated, allowedRoles, userRole, children }) => {
+  if (!isAuthenticated) {
+    // Si el usuario no está autenticado, redirigir al inicio de sesión
     return <Navigate to="/login" replace />;
   }
 
+  if (!allowedRoles.includes(userRole)) {
+    // Si el usuario no tiene el rol permitido, redirigir a una página de no autorizado
+    return <Navigate to="/not-authorized" replace />;
+  }
+
+  // Si el usuario está autenticado y tiene el rol adecuado, renderizar el componente hijo
   return children;
 };
 
